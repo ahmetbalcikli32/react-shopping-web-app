@@ -1,0 +1,19 @@
+.label {
+    font-size: larger;
+}
+
+.link-button {
+    padding: 10px;
+}
+
+.alignment {
+    align-items: center;
+}
+
+.padded-button {
+    padding: 20px;
+}
+
+.form-border{
+    border: #282c34;
+}
