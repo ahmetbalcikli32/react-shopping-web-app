@@ -1,34 +1,33 @@
 import React, {Component} from 'react';
-import {Nav, Navbar, NavDropdown, NavItem, NavLink, Row} from "react-bootstrap";
+import {Image, Nav, Navbar, NavDropdown, NavItem, NavLink, Row} from "react-bootstrap";
 import CartSummary from "../cart/CartSummary";
 import {Link} from "react-router-dom";
+import logo from "../../assets/eticaret-logo.PNG";
+import "../../App.css";
 
 class Navi extends Component {
     render() {
         return (
             <div>
-                <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar bg="light" expand="sm" className="App-header">
+                    <Link to="/">
+                        <Navbar.Brand><Image src={logo} alt="Eticaret Logo" className="App-logo"/></Navbar.Brand>
+                    </Link>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <NavLink>
-                                <Link to="/">Home</Link>
-                            </NavLink>
-                            <Nav.Link href="#link">Link</Nav.Link>
                         </Nav>
                         <NavItem>
                             <Row>
-                                <NavLink>
-                                    <Link to="/login">Giriş Yap</Link>
-                                </NavLink>
-                                <NavLink>
-                                    <Link to="/signup">Üye Ol</Link>
-                                </NavLink>
+                                <Nav.Item>
+                                    <Link className="nav-link" to="/login">Giriş Yap</Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Link className="nav-link" to="/signup">Üye Ol</Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <CartSummary/>
+                                </Nav.Item>
                             </Row>
-                        </NavItem>
-                        <NavItem>
-                            <CartSummary/>
                         </NavItem>
                     </Navbar.Collapse>
                 </Navbar>

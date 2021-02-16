@@ -6,6 +6,6 @@ export const signup = body => {
 
 export const login = body => {
     return axios.post('/api/auth',
-     {auth: body},
+     {},
         {auth:body})
 }

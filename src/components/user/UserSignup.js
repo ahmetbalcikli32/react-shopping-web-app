@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Button, Card, Col, Container, Form, Row, Spinner} from "react-bootstrap";
-import Input from "./Input";
-import {Link} from "react-router-dom";
+import {Alert, Button, Card, Col, Container, Form, Row, Spinner} from "react-bootstrap";
+import Input from "../tools/Input";
+import {signup} from "../../services/userService"
+import ButtonWithProgress from "../tools/ButtonWithProgress";
+import ButtonLinkWithoutProgress from "../tools/ButtonLinkWithoutProgress";
+import InformationAlert from "../tools/InformationAlert";
+import {withApiProgress} from "../../shared/ApiProgress";
 
 class UserSignup extends Component {
 
@@ -12,7 +16,6 @@ class UserSignup extends Component {
         firstName: null,
         lastName: null,
         email: null,
-        pendingApiCall: false,
         errors: {},
         successful: false,
         message: null
@@ -33,24 +36,23 @@ class UserSignup extends Component {
         const body = {
             username, firstName, lastName, password, email
         }
-        this.setState({pendingApiCall: true});
 
-        axios.post('/api/users', body)
-            .then(response => {
-                this.setState({
-                        message: response.data.message,
-                        successful: true
-                    });
+        try {
+            const response = await signup(body);
+            this.setState({
+                message: response.data.message
             })
-            .catch(error => {
-                this.setState({errors: error.response.data.validationErrors})
-            });
-        this.setState({pendingApiCall: false})
+        } catch (error) {
+            this.setState({
+                errors: error.response.data.validationErrors
+            })
+        }
     }
 
     render() {
 
-        const {pendingApiCall, errors} = this.state;
+        const {errors, message} = this.state;
+        const {pendingApiCall} = this.props;
         const {username, firstName, lastName, password, email} = errors;
 
         return (
@@ -63,52 +65,28 @@ class UserSignup extends Component {
                                     <h1 className="text-center">Üye Ol</h1>
                                     <Input className="label" name="username" label="Kullanıcı Adı" type="text"
                                            placeholder="Kullanıcı Adınızı Giriniz"
-                                           handleChange={this.handleChange} error={username}>
-                                    </Input>
+                                           handleChange={this.handleChange} error={username}/>
                                     <Input className="label" name="firstName" label="Adınız" type="text"
                                            placeholder="Adınızı Giriniz"
-                                           handleChange={this.handleChange} error={firstName}>
-                                    </Input>
+                                           handleChange={this.handleChange} error={firstName}/>
                                     <Input className="label" name="lastName" label="Soyadınız" type="text"
                                            placeholder="Soyadınızı Giriniz"
-                                           handleChange={this.handleChange} error={lastName}>
-                                    </Input>
+                                           handleChange={this.handleChange} error={lastName}/>
                                     <Input className="label" name="email" label="Email" type="email"
                                            placeholder="Email Adresinizi Giriniz"
-                                           handleChange={this.handleChange} error={email}>
-                                    </Input>
+                                           handleChange={this.handleChange} error={email}/>
                                     <Input className="label" name="password" label="Şifre" type="password"
                                            placeholder="Şifrenizi Giriniz"
-                                           handleChange={this.handleChange} error={password}>
-                                    </Input>
-                                    <Form.Group>
-                                        <Button className="btn-dark btn-block padded-button" type="submit"
-                                                onClick={this.onClickSignup}
-                                                disabled={pendingApiCall}>{pendingApiCall &&
-                                        <Spinner as="span" size="sm" animation={"border"}/>}Üye Ol</Button>
-                                    </Form.Group>
-                                    <Form.Group>
-                                        {this.state.message && (
-                                            <div className="form-group">
-                                                <div
-                                                    className={
-                                                        this.state.successful && "alert alert-success"}>
-                                                    {this.state.message}
-                                                </div>
-                                            </div>
-                                        )}
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Row className="alignment">
-                                            <Col xs="6">
-                                                <h5>Zaten Üye misiniz?</h5>
-                                            </Col>
-                                            <Col xs="6">
-                                                <Link to="/login" className="btn-success btn-block link-button">Giriş
-                                                    Yap</Link>
-                                            </Col>
-                                        </Row>
-                                    </Form.Group>
+                                           handleChange={this.handleChange} error={password}/>
+                                    <ButtonWithProgress onClick={this.onClickSignup} text="Üye Ol"
+                                                        variant="dark"
+                                                        pendingApiCall={pendingApiCall}
+                                                        disabled={pendingApiCall}/>
+                                    {message && <InformationAlert text={message} variant="success"/>}
+                                    <ButtonLinkWithoutProgress text="Giriş Yap"
+                                                               description="Zaten Üye misiniz?"
+                                                               className="btn-success btn-block link-button"
+                                                               path="/login"/>
                                 </Form>
                             </Card.Body>
 
@@ -120,4 +98,6 @@ class UserSignup extends Component {
     }
 }
 
-export default UserSignup;
+const UserSignupWithApiProgress = withApiProgress(UserSignup, '/api/users');
+
+export default UserSignupWithApiProgress;
