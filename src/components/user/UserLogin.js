@@ -7,6 +7,9 @@ import ButtonWithProgress from "../tools/ButtonWithProgress";
 import ButtonLinkWithoutProgress from "../tools/ButtonLinkWithoutProgress";
 import InformationAlert from "../tools/InformationAlert";
 import {withApiProgress} from "../../shared/ApiProgress";
+import {connect} from "react-redux";
+import * as userActions from "../../redux/actions/userActions";
+import {bindActionCreators} from "redux";
 
 class UserLogin extends Component {
 
@@ -43,6 +46,7 @@ class UserLogin extends Component {
 
     onClick = async event => {
         event.preventDefault();
+        const {onLoginSuccess} = this.props;
         const {username, password} = this.state;
         const body = {
             username, password
@@ -57,9 +61,8 @@ class UserLogin extends Component {
         try {
             await login(body);
             push('/');
-            // this.setState({
-            //     message: 'Başarıyla giriş yapıldı'
-            // });
+            // this.props.actions.loginUser();
+            // onLoginSuccess(username);
         } catch (apiError) {
             this.setState({
                 error: apiError.response.data.message
@@ -107,6 +110,14 @@ class UserLogin extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        actions: {
+            loginUser: bindActionCreators(userActions.getLoggedInUserState, dispatch)
+        }
+    }
+}
+
 const UserLoginWithApiProgress = withApiProgress(UserLogin, '/api/auth');
 
-export default UserLoginWithApiProgress;
+export default (connect)(mapDispatchToProps)(UserLoginWithApiProgress);

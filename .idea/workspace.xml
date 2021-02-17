@@ -2,37 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="839e5b9e-3a1f-4458-ba6d-4a3e99e82232" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/api/apiCalls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/base/Dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cart/CartDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cart/CartSummary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/category/CategoryList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/navi/Navi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/product/ProductList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/style/input.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/user/Input.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/user/UserLogin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/user/UserSignup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/cartActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/categoryActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/productActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/cartReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/categoryListReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/changeCategoryReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/configureStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/initialState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/productListReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/authService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/AuthenticationContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/base/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navi/Navi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navi/Navi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/UserLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/categoryActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/categoryActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/cartReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/cartReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/configureStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/initialState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ApiProgress.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ApiProgress.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,10 +76,54 @@
       <workItem from="1613142505696" duration="3150000" />
       <workItem from="1613222387494" duration="8616000" />
       <workItem from="1613289641866" duration="7546000" />
+      <workItem from="1613579170617" duration="12924000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="test-1" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

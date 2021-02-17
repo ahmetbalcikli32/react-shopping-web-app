@@ -3,5 +3,13 @@ export default {
     categories: [],
     products: [],
     cart: [],
-    loggedInUser: {}
+    loggedInState: {},
+    defaultState: {
+        isLoggedIn: false,
+        username: undefined,
+        firstName: undefined,
+        lastName: undefined,
+        email: undefined,
+        password: undefined
+    }
 };
