@@ -8,7 +8,6 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <Navi/>
                 <Row>
                     <Col xl="3">
                         <CategoryList/>

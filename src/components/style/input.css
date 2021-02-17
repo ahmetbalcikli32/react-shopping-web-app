@@ -2,18 +2,12 @@
     font-size: larger;
 }
 
-.link-button {
-    padding: 10px;
+.link-button:link {
+    padding: 8px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .alignment {
     align-items: center;
-}
-
-.padded-button {
-    padding: 20px;
-}
-
-.form-border{
-    border: #282c34;
 }
