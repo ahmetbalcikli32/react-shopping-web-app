@@ -20,11 +20,11 @@ class CartDetail extends Component {
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Price</th>
+                        <th>Ürün Kodu</th>
+                        <th>Ürün Adı</th>
+                        <th>Adet</th>
+                        <th>Birim Fiyatı</th>
+                        <th>Tutar</th>
                         <th/>
                     </tr>
                     </thead>
@@ -33,8 +33,8 @@ class CartDetail extends Component {
                         this.props.cart.map(cartItem => (
                             <tr key={cartItem.product.id}>
                                 <th scope="row">{cartItem.product.id}</th>
+                                <td>{cartItem.product.serialCode}</td>
                                 <td>{cartItem.product.title}</td>
-                                <td>{cartItem.product.description}</td>
                                 <td>{cartItem.quantity}</td>
                                 <td>{cartItem.product.price}</td>
                                 <td>{cartItem.product.price * cartItem.quantity}</td>

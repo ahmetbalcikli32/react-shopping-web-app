@@ -10,13 +10,11 @@ import {BrowserRouter, HashRouter} from "react-router-dom";
 
 const store = configureStore();
 ReactDOM.render(
-        <HashRouter>
-            <Provider store={store}>
-                <React.StrictMode>
-                    <App/>
-                </React.StrictMode>
-            </Provider>
-        </HashRouter>,
+    <Provider store={store}>
+        <React.StrictMode>
+            <App/>
+        </React.StrictMode>
+    </Provider>,
     document.getElementById('root')
 );
 

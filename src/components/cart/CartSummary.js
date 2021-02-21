@@ -13,7 +13,6 @@ class CartSummary extends Component {
         alertify.error(product.title + " sepetten kaldırıldı", 3);
     }
 
-
     renderEmptyCart() {
         return (
             <Nav>

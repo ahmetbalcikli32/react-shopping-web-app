@@ -3,14 +3,14 @@ import changeCategoryReducer from "./changeCategoryReducer";
 import categoryListReducer from "./categoryListReducer";
 import productListReducer from "./productListReducer";
 import cartReducer from "./cartReducer";
-import userReducer from "./userReducer";
+import authReducer from "./authReducer";
 
 const rootReducer = combineReducers({
     changeCategoryReducer,
     categoryListReducer,
     productListReducer,
     cartReducer,
-    userReducer
+    authReducer
 });
 
 export default rootReducer;

@@ -6,7 +6,8 @@ import logo from "../../assets/eticaret-logo.PNG";
 import "../../App.css";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as userActions from "../../redux/actions/userActions";
+import * as userActions from "../../redux/actions/authActions";
+import {logoutSuccess} from "../../redux/actions/authActions";
 
 class Navi extends Component {
 
@@ -16,9 +17,7 @@ class Navi extends Component {
 
     render() {
 
-        // const {username, isLoggedIn} = this.props.loggedInState;
-        const isLoggedIn = true;
-        const username = "user1";
+        const {username, isLoggedIn, onLogoutSuccess} = this.props.loggedInState;
 
         let links = (
             <NavItem>
@@ -61,9 +60,8 @@ class Navi extends Component {
                                              className="App-logo"/></Navbar.Brand>
                     </Link>
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
+                        <Nav className="ml-auto"> {links}
                         </Nav>
-                        {links}
                     </Navbar.Collapse>
                 </Navbar>
             </div>
@@ -73,7 +71,7 @@ class Navi extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInState: state.userReducer
+        loggedInState: state.authReducer
     };
 }
 
@@ -84,5 +82,13 @@ const mapDispatchToProps = dispatch => {
         }
     }
 }
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onLogoutSuccess: function () {
+//             return dispatch(logoutSuccess());
+//         }
+//     }
+// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navi);

@@ -3,7 +3,6 @@ export default {
     categories: [],
     products: [],
     cart: [],
-    loggedInState: {},
     defaultState: {
         isLoggedIn: false,
         username: undefined,
