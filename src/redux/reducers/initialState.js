@@ -2,6 +2,7 @@ export default {
     currentCategory: {},
     categories: [],
     products: [],
+    // eslint-disable-next-line no-undef
     cart: [],
     defaultState: {
         isLoggedIn: false,

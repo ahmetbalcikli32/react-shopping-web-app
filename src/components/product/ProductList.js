@@ -19,19 +19,17 @@ class ProductList extends Component {
         this.props.actions.addToCart({quantity: 1, product})
         alertify.success(product.title + " sepete eklendi", 3);
     }
-
+    /*
     saveCart = async event => {
         event.preventDefault();
         const {cart} = this.props;
-        console.log(cart);
         try {
             const response = await saveCart(cart);
-            console.log(response)
         } catch (apiError) {
             const error = apiError.response.data.message;
-            console.log(error)
         }
     }
+     */
 
     /*
     renderWithTable() {
@@ -79,30 +77,27 @@ class ProductList extends Component {
 
         return (
             <div>
+                <h3 align="left">
+                    <Badge variant="warning">Products</Badge>
+                    <Badge variant="success">{this.props.currentCategory.name}</Badge>
+                </h3>
                 <Row>
                     {this.props.products.map(product => (
-                        <Card key={product.id}>
+                        <Card key={product.id} style={{width: '20rem', marginLeft: '5px', marginBottom: '5px'}}>
                             <Card.Img className="img" variant="top" src={product.photoUrl}/>
                             <Card.Body>
                                 <Card.Subtitle className="mb-2 text-muted">{product.serialCode}</Card.Subtitle>
                                 <Card.Title>{product.title}</Card.Title>
-                                <Card.Title>{product.categoryId}</Card.Title>
                                 {/*<Card.Text>{product.description}</Card.Text>*/}
-                                <Card.Footer className="card-price"><CurrencyFormat value={product.price}
-                                                                                    displayType={'text'}
-                                                                                    decimalSeparator={null}
-                                                                                    thousandSeparator={'.'}
-                                                                                    suffix={'TL'} renderText={value => <div>{value}</div>}/></Card.Footer>
-                                <Form.Group>
-                                    <Row>
-                                        <div>
-                                            <Button variant="info" onClick={() => this.addToCart(product)}>Sepete Ekle</Button>
-                                        </div>
-                                        <div>
-                                            <Button variant="info" onClick={this.saveCart}>SaveCart</Button>
-                                        </div>
-                                    </Row>
-                                </Form.Group>
+                                <Card.Footer className="card-price alignment"><CurrencyFormat value={product.price}
+                                                                                              displayType={'text'}
+                                                                                              decimalSeparator={null}
+                                                                                              thousandSeparator={'.'}
+                                                                                              suffix={'TL'} renderText={value => <div>{value}</div>}/></Card.Footer>
+                                <div align="left">
+                                    <Button variant="info" onClick={() => this.addToCart(product)}>Sepete Ekle</Button>
+                                    {/*<Button variant="info" onClick={this.saveCart}>SaveCart</Button>*/}
+                                </div>
                             </Card.Body>
                         </Card>
                     ))}

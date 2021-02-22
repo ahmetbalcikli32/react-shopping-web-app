@@ -28,8 +28,7 @@ const UserSignup = props => {
         errorsCopy[name] = undefined;
         setErrors(errorsCopy);
         const formCopy = {...form};
-        formCopy[name] = value;
-        setForm(formCopy);
+        setForm((previousForm) => ({...previousForm, [name]: value}));
     }
 
     const onClickSignup = async event => {
@@ -49,7 +48,7 @@ const UserSignup = props => {
     }
 
     const {pendingApiCall} = props;
-    const {username, firstName, lastName, password, email} = errors;
+    const {username: usernameError, firstName: firstNameError, lastName: lastNameError, password: passwordError, email: emailError} = errors;
 
     return (
         <Container>
@@ -61,19 +60,19 @@ const UserSignup = props => {
                                 <h1 className="text-center">Üye Ol</h1>
                                 <Input className="label" name="username" label="Kullanıcı Adı" type="text"
                                        placeholder="Kullanıcı Adınızı Giriniz"
-                                       handleChange={handleChange} error={username}/>
+                                       handleChange={handleChange} error={usernameError}/>
                                 <Input className="label" name="firstName" label="Adınız" type="text"
                                        placeholder="Adınızı Giriniz"
-                                       handleChange={handleChange} error={firstName}/>
+                                       handleChange={handleChange} error={firstNameError}/>
                                 <Input className="label" name="lastName" label="Soyadınız" type="text"
                                        placeholder="Soyadınızı Giriniz"
-                                       handleChange={handleChange} error={lastName}/>
+                                       handleChange={handleChange} error={lastNameError}/>
                                 <Input className="label" name="email" label="Email" type="email"
                                        placeholder="Email Adresinizi Giriniz"
-                                       handleChange={handleChange} error={email}/>
+                                       handleChange={handleChange} error={emailError}/>
                                 <Input className="label" name="password" label="Şifre" type="password"
                                        placeholder="Şifrenizi Giriniz"
-                                       handleChange={handleChange} error={password}/>
+                                       handleChange={handleChange} error={passwordError}/>
                                 <ButtonWithProgress onClick={onClickSignup} text="Üye Ol"
                                                     variant="dark"
                                                     pendingApiCall={pendingApiCall}

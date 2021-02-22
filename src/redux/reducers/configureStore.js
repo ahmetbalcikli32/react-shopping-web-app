@@ -3,26 +3,48 @@ import rootReducer from "./index";
 import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import initialState from "./initialState";
+import SecureLS from "secure-ls";
 
 const composeEnhancers = composeWithDevTools({});
 
+const secureLs = new SecureLS();
+
+const getStateFromStorage = () => {
+    const auth = secureLs.get('auth');
+    let stateInLocalStorage = [initialState.defaultState];
+    if (auth) {
+        return auth;
+    }
+    return stateInLocalStorage;
+}
+
+const getCartFromStorage = () => {
+    const cart = secureLs.get('cart');
+    let cartInLocalStorage = [initialState.cart];
+    if (cart) {
+        return cart;
+    } else if (cart == null) {
+        return undefined;
+    }
+    return cartInLocalStorage;
+}
+
+const updateStateInStorage = newState => {
+    secureLs.set('auth', newState);
+}
+
+const updateCartInStorage = newState => {
+    secureLs.set('cart', newState);
+}
+
 const configureStore = () => {
 
-    let stateInLocalStorage = initialState.defaultState;
-
-    const auth = localStorage.getItem('applicationState');
-
-    if (auth) {
-        stateInLocalStorage = JSON.parse(auth);
-    }
-
-    const store = createStore(rootReducer, {authReducer: stateInLocalStorage}, composeWithDevTools(applyMiddleware(thunk)));
+    const store = createStore(rootReducer, {authReducer: getStateFromStorage(), cartReducer: getCartFromStorage()}, composeWithDevTools(applyMiddleware(thunk)));
 
     store.subscribe(() => {
-        localStorage.setItem('auth', JSON.stringify(store.getState().authReducer));
-
+        updateStateInStorage(store.getState().authReducer)
+        updateCartInStorage(store.getState().cartReducer)
     });
-
     return store;
 }
 

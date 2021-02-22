@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="839e5b9e-3a1f-4458-ba6d-4a3e99e82232" name="Default Changelist" comment="user Redux integration">
-      <change afterPath="$PROJECT_DIR$/src/services/cartService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/base/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/CartDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart/CartDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/CartSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart/CartSummary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navi/Navi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navi/Navi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category/CategoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category/CategoryList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product/ProductList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/style/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/style/input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/UserLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/user/UserSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/UserSignup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/authActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/configureStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/initialState.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/initialState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +87,8 @@
       <workItem from="1613816166224" duration="2387000" />
       <workItem from="1613819372755" duration="5130000" />
       <workItem from="1613857789556" duration="5461000" />
-      <workItem from="1613936406473" duration="3801000" />
+      <workItem from="1613936406473" duration="5829000" />
+      <workItem from="1613999649390" duration="6578000" />
     </task>
     <task id="LOCAL-00001" summary="user Redux integration">
       <created>1613602965679</created>
